@@ -1,24 +1,27 @@
 ---
+import Personaje from './Personaje.astro';
+
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+	name: string;
+	status: string;
+	image: string;
 }
 
-const { href, title, body } = Astro.props;
+const { name, status, image } = Astro.props;
 ---
 
-<li class="link-card">
-	<a href={href}>
+<div class="link-card">
+	<div class="contenido-card">
 		<h2>
-			{title}
-			<span>&rarr;</span>
+			{name}
 		</h2>
+		<img src={image} alt="">
 		<p>
-			{body}
+			{status}
 		</p>
-	</a>
-</li>
+	</div>
+</div>
+
 <style>
 	.link-card {
 		list-style: none;
@@ -32,9 +35,8 @@ const { href, title, body } = Astro.props;
 		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 	}
-	.link-card > a {
+	.link-card .contenido-card{
 		width: 100%;
-		text-decoration: none;
 		line-height: 1.4;
 		padding: calc(1.5rem - 1px);
 		border-radius: 8px;

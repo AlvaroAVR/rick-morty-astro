@@ -1,0 +1,21 @@
+---
+import Card from "./Card.astro"
+
+const {personaje} = Astro.props
+console.log(personaje)
+
+const {name,image,status} = personaje
+
+let estado
+if(status == "unknown"){
+    estado="Desconocido";
+}else{
+    estado = status
+}
+---
+
+<Card
+	image={image}
+	name={name}
+	status={estado}
+/>
